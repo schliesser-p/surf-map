@@ -5,7 +5,7 @@ import sys
 
 app = Flask(__name__)
 
-with open("./spots_location.json", "r") as f:
+with open("/home/vipete/surf-map/spots_location.json", "r") as f:
     js = json.load(f)
 
 def add_marker_to_map(m, lat, long, popup):
