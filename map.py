@@ -5,7 +5,7 @@ import git
 
 app = Flask(__name__)
 
-with open("C:/Users/schli/PythonProjects/webscraping/spots_location.json", "r") as f:
+with open("./spots_location.json", "r") as f:
     js = json.load(f)
 
 def add_marker_to_map(m, lat, long, popup):
