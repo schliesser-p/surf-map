@@ -1,7 +1,6 @@
 import folium
 import json
 from flask import Flask, render_template, request
-import git
 import sys
 
 path = '/home/vipete/surf-map/'
@@ -28,23 +27,11 @@ def create_map(data, country):
 
     return map._repr_html_()
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    if request.method == 'POST':
-        repo = git.Repo('./surf-map')
-        origin = repo.remotes.origin
-        repo.create_head('master', 
-    origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
-        origin.pull()
-        return 'Updated', 200
-    else:
-        return 'Something went wrong...', 400
-
-@app.route('/input')
+@app.route('/')
 def index():    
     return render_template("input-form.html")
 
-@app.route('/map', methods=['POST'])
+@app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
     processed_text = text
