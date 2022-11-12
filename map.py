@@ -2,6 +2,11 @@ import folium
 import json
 from flask import Flask, render_template, request
 import git
+import sys
+
+path = '/home/vipete/surf-map/'
+if path not in sys.path:
+   sys.path.insert(0, path)
 
 app = Flask(__name__)
 
@@ -47,5 +52,4 @@ def my_form_post():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    app.run()
