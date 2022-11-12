@@ -4,8 +4,8 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-data = "./spots_location.json"
-# data= "/home/vipete/surf-map/spots_location.json" 
+# data = "./spots_location.json"
+data= "/home/vipete/surf-map/spots_location.json" 
 with open(data, "r") as f:
     js = json.load(f)
 
