@@ -23,15 +23,17 @@ def create_map(data, country):
 
     return map._repr_html_()
 
-@app.route('/', mehtods=["POST"])
+@app.route('/webhook', methods=['POST'])
 def webhook():
-    if request.method == "POST":
-        repo = git.Repo("https://github.com/schliesser-p/surf-map")
+    if request.method == 'POST':
+        repo = git.Repo('./surf-map')
         origin = repo.remotes.origin
+        repo.create_head('master', 
+    origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
         origin.pull()
-        return 'Updated PythonAnywhere successfully', 200
+        return 'Updated', 200
     else:
-        return 'Wrong event type', 400 
+        return 'Something went wrong...', 400
 
 @app.route('/input')
 def index():    
