@@ -1,11 +1,12 @@
 import folium
 import json
 from flask import Flask, render_template, request
-import sys
 
 app = Flask(__name__)
 
-with open("/home/vipete/surf-map/spots_location.json", "r") as f:
+# data = "./spots_location.json"
+data_anywhere = "/home/vipete/surf-map/spots_location.json" 
+with open(data_anywhere, "r") as f:
     js = json.load(f)
 
 def add_marker_to_map(m, lat, long, popup):
@@ -31,7 +32,7 @@ def index():
 def my_form_post():
     text = request.form['text']
     processed_text = text
-    return create_map(js, processed_text)
+    return render_template("result.html", result=create_map(js, processed_text))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
