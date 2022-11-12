@@ -3,10 +3,6 @@ import json
 from flask import Flask, render_template, request
 import sys
 
-path = '/home/vipete/surf-map/'
-if path not in sys.path:
-   sys.path.insert(0, path)
-
 app = Flask(__name__)
 
 with open("./spots_location.json", "r") as f:
@@ -36,7 +32,6 @@ def my_form_post():
     text = request.form['text']
     processed_text = text
     return create_map(js, processed_text)
-
 
 if __name__ == '__main__':
     app.run()
