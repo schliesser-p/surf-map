@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # data_path = "./spot_location.csv"
-data_path = "/home/vipete/surf-map/spot_location.json" 
+data_path = "/home/vipete/surf-map/spot_location.csv" 
 
 pdf = pd.read_csv(data_path, encoding="utf-8")
     
