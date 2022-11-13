@@ -41,4 +41,4 @@ def my_form_post():
     return render_template("index.html", result=create_map(pdf, processed_text))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
