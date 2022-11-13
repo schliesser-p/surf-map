@@ -36,7 +36,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    text = request.form['text'] or None
+    text = request.form['search'] or None
     processed_text = text
     return render_template("index.html", result=create_map(pdf, processed_text))
 

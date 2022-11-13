@@ -1,13 +1,45 @@
 <html>
+
 <head>
     <title>Surf Map</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
+    <style>
+        article {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
-    <body>
-        <h1>Surf Map</h1>
-        <form method="POST">
-            <input name="text">
-            <input type="submit">
-        </form>
-        {{result|safe}}
-    </body>
+<body>
+    <div style="overflow: hidden; height: 3em;">
+        <!-- For Demo, Represents the body -->
+        <nav class="menu">
+            <a href="#" class="brand">
+                <span>Surf map</span>
+            </a>
+            <!-- responsive-->
+            <input id="bmenub" type="checkbox" class="show">
+            <label for="bmenub" class="burger pseudo button">menu</label>
+
+            <div class="menu">
+                <a href="#" class="pseudo button icon-picture">Nothing</a>
+                <a href="#" class="button icon-puzzle">to see</a>
+            </div>
+        </nav>
+    </div>
+    <section class="flex five">
+        <article class="full four-fifth-1000">
+            <h1>Surf map</h1>
+            <fieldset class="flex two">
+            <form method="POST">
+                <input name="search" placeholder="Search">
+                <label><input type="submit"></label>
+            </form>
+            </fieldset>
+            {{result|safe}}
+        </article>
+    </section>
+</body>
+
 </html>
