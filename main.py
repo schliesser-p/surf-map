@@ -1,12 +1,13 @@
 import folium
 import csv
+import os
 import pandas as pd
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 # data_path = "./spot_location.csv"
-data_path = "/home/vipete/surf-map/spot_location.csv" 
+data_path = "spot_location.csv" 
 
 pdf = pd.read_csv(data_path, encoding="utf-8")
     
@@ -41,4 +42,4 @@ def my_form_post():
     return render_template("index.html", result=create_map(pdf, processed_text))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
